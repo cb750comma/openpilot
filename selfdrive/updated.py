@@ -337,6 +337,7 @@ def main():
         update_failed_count = 0
         if not update_available and os.path.isdir(NEOSUPDATE_DIR):
           shutil.rmtree(NEOSUPDATE_DIR)
+        break
       else:
         cloudlog.info("not running updater, openpilot running")
 
@@ -355,6 +356,7 @@ def main():
     params.put("UpdateFailedCount", str(update_failed_count))
     wait_helper.sleep(60*10)
 
+  os.system("reboot")
   dismount_ovfs()
 
 if __name__ == "__main__":
