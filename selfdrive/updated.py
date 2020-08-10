@@ -217,6 +217,7 @@ def attempt_update(wait_helper):
   err_msg = "Failed to add the host to the list of known hosts (/data/data/com.termux/files/home/.ssh/known_hosts).\n"
   git_fetch_result = len(git_fetch_output) > 0 and (git_fetch_output != err_msg)
 
+  new_version = True
   cloudlog.info("comparing %s to %s" % (cur_hash, upstream_hash))
   if new_version or git_fetch_result:
     cloudlog.info("Running update")
